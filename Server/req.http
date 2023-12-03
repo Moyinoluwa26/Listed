@@ -1,0 +1,13 @@
+//@base_url = http://localhost:3000/api
+
+### Create a new Todo
+//POST {{base_url}}/item
+POST http://localhost:3000/api/item
+Content-Type: application/json
+
+{
+  "name": "Drink Water",
+  "age": 20,
+  "email": "victormoyin435@gmail.com"
+}
+
