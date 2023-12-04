@@ -2,13 +2,23 @@
 import mongoose from 'mongoose';
 
 const TodoItemSchema = mongoose.Schema({
-    name: {
+    /* name: {
+         type: String,
+         required: true
+     },
+     age: Number,
+     email: String*/
+    userId: {
         type: String,
         required: true
     },
-    age: Number,
-    email: String
+    item: {
+        type: String,
+        required: true
+    }
+
 })
+
 
 const TodoItem = mongoose.model('TodoItem', TodoItemSchema);
 
