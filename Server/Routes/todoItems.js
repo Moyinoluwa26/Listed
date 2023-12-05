@@ -40,13 +40,12 @@ router.get('/api/item/:userId', async (req, res) => {
 })
 
 
-router.patch('/api/item/:userId/:id', async (req, res) => {
-    const { userId, id } = req.params;
+router.patch('/api/item/:id', async (req, res) => {
+    const { id } = req.params;
     const { item } = req.body
     try {
 
         const timeID = await TodoItem.find({
-            userId: userId,
             _id: id
 
         });

@@ -3,7 +3,7 @@
 ### Create a new Todo
 //POST {{base_url}}/item
 
-PATCH http://localhost:3000/api/item/656e490fa1841270bfe3068d/656e4b03a1841270bfe30695
+PATCH http://localhost:3000/api/item/656e4b03a1841270bfe30695
 Content-Type: application/json
 
 {
