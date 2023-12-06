@@ -2,11 +2,10 @@
 
 ### Create a new Todo
 //POST {{base_url}}/item
-
-PATCH http://localhost:3000/api/item/656e4b03a1841270bfe30695
+POST http://localhost:3000/api/auth/login
 Content-Type: application/json
 
 {
-    "item":"Buy Garri Instead . There is no money"
-
+    "username": "MoyinDoskey26$",
+    "password": "TodoApp1234"
 }

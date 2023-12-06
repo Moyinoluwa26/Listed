@@ -45,7 +45,7 @@ router.patch('/api/item/:id', async (req, res) => {
     const { item } = req.body
     try {
 
-        const timeID = await TodoItem.find({
+        /*onst timeID = await TodoItem.find({
             _id: id
 
         });
@@ -55,7 +55,9 @@ router.patch('/api/item/:id', async (req, res) => {
         timeID.item = item;
         const Updated = await timeID.save();
 
-        res.send(Updated);
+        res.send(Updated);*/
+        const editItem = await TodoItem.findByIdAndUpdate(id, { item: item }, { new: true })
+        res.status(200).json(editItem);
 
     } catch (err) {
         res.status(400).json({
