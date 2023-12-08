@@ -1,12 +1,21 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { BrowserRouter, Navigate, Routes, Route } from 'react-router-dom';
+import LoginPage from './LoginPage'
+import Home from './HomePage'
+
+//import { useSelector } from 'react-redux';
 
 function App() {
   return (
     <div className="App">
-      <h1>
-        {useSelector(state => state.auth.user)}
-      </h1>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Navigate to="/login" />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/about" element={<div>About</div>} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
