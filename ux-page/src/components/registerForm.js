@@ -39,12 +39,19 @@ const RegisterForm = () => {
                 body: JSON.stringify(formData)
             })
             const data = await response.json();
-            resetForm()
+
             console.log(data);
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+
+            resetForm()
 
         } catch (err) {
             console.log(err.message)
         }
+
     }
 
     const resetForm = () => {
@@ -60,7 +67,7 @@ const RegisterForm = () => {
             <input type="text" name="email" placeholder="email" value={formData.email} onChange={handleChange} className='p-2 mx-2 border-2 my-2 ' />
             <input type="text" name="username" value={formData.username} placeholder="Choose a suitable Username for yourself" onChange={handleChange} className='p-2 mx-2 border-2 my-2 ' />
             <input type="text" name="password" value={formData.password} placeholder="Choose a suitable password for yourself" onChange={handleChange} className='p-2 mx-2 border-2 my-2 ' />
-            <button className='bg-blue-600 text-white p-2 rounded-lg my-2 mx-2 ' type='submit ' onClick={resetForm}>Register</button>
+            <button className='bg-blue-600 text-white p-2 rounded-lg my-2 mx-2 ' type='submit ' >Register</button>
 
         </form>
     </div>);
