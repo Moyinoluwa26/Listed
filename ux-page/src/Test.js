@@ -1,4 +1,4 @@
-import React from 'react';
+/*import React from 'react';
 import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
 import LoginForm from './LoginForm';
 import HomePage from './HomePage';
@@ -26,4 +26,4 @@ const Test = () => {
     );
 };
 
-export default Test;
+export default Test;*/

@@ -4,6 +4,7 @@ import cors from 'cors';
 import mongoose from 'mongoose';
 import itemRoute from './Routes/todoItems.js';
 import Register from './Routes/auth.js';
+//import verifyToken from './Middleware/auth.js';
 
 
 dotenv.config();

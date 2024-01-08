@@ -1,10 +1,12 @@
 import { React, useState } from 'react';
 import { useDispatch } from 'react-redux';
+//import { useNavigate } from 'react-router-dom';
 
 
 
 const Login = () => {
     const Dispatch = useDispatch();
+    //const Navigate = useNavigate();
 
     const initialFormData = { username: "", password: "" };
 
@@ -40,6 +42,7 @@ const Login = () => {
                 Dispatch({ type: 'setLogin', payload: { user: data.user, token: data.token } });
             }
             resetForm();
+
         } catch (err) {
             console.log(err.message);
         }

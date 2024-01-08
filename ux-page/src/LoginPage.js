@@ -3,7 +3,10 @@ import Login from './components/loginForm';
 import Register from './components/registerForm';
 
 
+
+
 const LoginPage = () => {
+
 
     const [pageType, setpageType] = useState("Register");
     const HaveAccount = () => {
@@ -21,6 +24,7 @@ const LoginPage = () => {
                 {pageType === "Register" && <Register />}
                 <button onClick={HaveAccount} className='my-10 ml-2 text-white hover:underline'> {pageType === "Register" ? "Have an account? Login" : "Don't have an account? Register"}</button>
             </div>
+
         </div>
     );
 }

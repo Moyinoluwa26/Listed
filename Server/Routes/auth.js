@@ -2,6 +2,7 @@ import express from 'express';
 import User from '../models/user.js';
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
+import verifyToken from '../middleware/auth.js';
 
 const router = express.Router();
 
@@ -41,5 +42,13 @@ router.post('/api/auth/login', async (req, res) => {
         })
     }
 });
+
+router.get('/verify', verifyToken, (req, res) => {
+    // The verifyToken middleware ensures that only authenticated users can access this route
+    res.json({ message: 'Token is valid', user: req.user });
+});
+
+
+
 
 export default router;
