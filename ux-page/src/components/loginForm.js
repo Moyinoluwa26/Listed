@@ -1,12 +1,14 @@
 import { React, useState } from 'react';
 import { useDispatch } from 'react-redux';
-//import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
 
 const Login = () => {
     const Dispatch = useDispatch();
-    //const Navigate = useNavigate();
+    const navigate = useNavigate();
+
+    const Hompage = () => navigate('/home');
 
     const initialFormData = { username: "", password: "" };
 
@@ -40,8 +42,11 @@ const Login = () => {
 
             if (data.status === 'ok') {
                 Dispatch({ type: 'setLogin', payload: { user: data.user, token: data.token } });
+
             }
+
             resetForm();
+            Hompage();
 
         } catch (err) {
             console.log(err.message);
