@@ -47,6 +47,8 @@ const Login = () => {
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
             }
+            localStorage.setItem('token', data.token);
+            localStorage.setItem('user', JSON.stringify(data.user));
             dispatch(setLogin({ user: data.user, token: data.token }));
             resetForm();
             navigate('/home');
