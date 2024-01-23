@@ -1,14 +1,15 @@
 import { React, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { setLogin } from '../state/index';
 
 
 
 const Login = () => {
-    const Dispatch = useDispatch();
+    const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const Hompage = () => navigate('/home');
+
 
     const initialFormData = { username: "", password: "" };
 
@@ -34,20 +35,21 @@ const Login = () => {
             });
             const data = await response.json();
             console.log(data);
-            /*if (data.status === 'ok') {
-                localStorage.setItem('token', data.token);
-                localStorage.setItem('username', data.username);
-                history.push('/');
-            }*/
+            /* if (data.status === 'ok') {
+                 dispatch(setLogin(data));
+                 resetForm();
+                 // Use navigate directly here
+                 navigate('/home');
+             } else {
+                 throw new Error(`HTTP error! Status: ${response.status}`);
+             }*/
 
-            if (data.status === 'ok') {
-                Dispatch({ type: 'setLogin', payload: { user: data.user, token: data.token } });
-
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
             }
-
+            dispatch(setLogin({ user: data.user, token: data.token }));
             resetForm();
-            Hompage();
-
+            navigate('/home');
         } catch (err) {
             console.log(err.message);
         }
@@ -56,12 +58,15 @@ const Login = () => {
     }
 
 
+
+
     return (<div>
         <form className='flex flex-col mt-2' onSubmit={handleSubmit}>
             <input type="text" name="username" placeholder="Username" value={formData.username} className='p-2 mx-2 border-2 my-2 ' onChange={handleChange} />
             <input type="password" name="password" placeholder="Password" value={formData.password} className='p-2 mx-2 border-2 my-2 ' onChange={handleChange} />
             <button className='bg-blue-600 text-white p-2 rounded-lg my-2 mx-2 ' type='submit'>Login</button>
         </form>
+
     </div>);
 }
 
