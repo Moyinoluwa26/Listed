@@ -64,7 +64,7 @@ const Login = () => {
 
     return (<div>
         <form className='flex flex-col mt-2' onSubmit={handleSubmit}>
-            <input type="text" name="username" placeholder="Username" value={formData.username} className='p-2 mx-2 border-2 my-2 ' onChange={handleChange} />
+            <input type="text" name="username" placeholder="Username" value={formData.username} className='p-2 mx-2 border-2 my-2' onChange={handleChange} />
             <input type="password" name="password" placeholder="Password" value={formData.password} className='p-2 mx-2 border-2 my-2 ' onChange={handleChange} />
             <button className='bg-blue-600 text-white p-2 rounded-lg my-2 mx-2 ' type='submit'>Login</button>
         </form>

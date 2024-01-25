@@ -13,7 +13,7 @@ function App() {
   return (
     <div className="App">
 
-      <div className='flex w-full bg-blue-600   '><h1 className='my-3 text-3xl text-white mx-auto'>Listio</h1></div>
+
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Navigate to="/login" />} />

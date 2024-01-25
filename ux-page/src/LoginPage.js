@@ -18,8 +18,8 @@ const LoginPage = () => {
     }
     return (
         <div className='h-screen w-screen bg-gray-200 flex flex-col mx-auto'>
-
-            <div className='md:w-2/5 bg-blue-500 md:mx-auto ' >
+            <div className='flex w-full bg-blue  '><h1 className='my-3 text-3xl text-white mx-auto'>Listio</h1></div>
+            <div className='md:w-2/5 bg-blueb md:mx-auto ' >
                 {pageType === "Login" && <Login />}
                 {pageType === "Register" && <Register />}
                 <button onClick={HaveAccount} className='my-10 ml-2 text-white hover:underline'> {pageType === "Register" ? "Have an account? Login" : "Don't have an account? Register"}</button>
