@@ -59,15 +59,15 @@ const RegisterForm = () => {
     };
 
 
-    return (<div>
-        <form className='flex flex-col mt-2' onSubmit={handleSubmit}>
-            <input type="text" name="firstName" placeholder="FirstName" value={formData.firstName} onChange={handleChange} className='p-2 mx-2 border-2 my-2 ' />
-            <input type="text" name="lastName" placeholder="LastName" value={formData.lastName} onChange={handleChange} className='p-2 mx-2 border-2 my-2 ' />
-            <input type="number" name="age" placeholder="Your Age" value={formData.age} onChange={handleChange} className='p-2 mx-2 border-2 my-2 ' />
-            <input type="text" name="email" placeholder="email" value={formData.email} onChange={handleChange} className='p-2 mx-2 border-2 my-2 ' />
-            <input type="text" name="username" value={formData.username} placeholder="Choose a suitable Username for yourself" onChange={handleChange} className='p-2 mx-2 border-2 my-2 ' />
-            <input type="text" name="password" value={formData.password} placeholder="Choose a suitable password for yourself" onChange={handleChange} className='p-2 mx-2 border-2 my-2 ' />
-            <button className='bg-blue-600 text-white p-2 rounded-lg my-2 mx-2 ' type='submit ' >Register</button>
+    return (<div className='mt-36 rounded-xl bg-gray-700'>
+        <form className='flex flex-col ' onSubmit={handleSubmit}>
+            <input type="text" name="firstName" placeholder="FirstName" value={formData.firstName} onChange={handleChange} className='p-2 rounded-lg mx-2 border-2 mt-3 mb-1 ' />
+            <input type="text" name="lastName" placeholder="LastName" value={formData.lastName} onChange={handleChange} className='p-2 rounded-lg mx-2 border-2 my-1 ' />
+            <input type="number" name="age" placeholder="Your Age" value={formData.age} onChange={handleChange} className='p-2 rounded-lg  mx-2 border-2 my-1 ' />
+            <input type="text" name="email" placeholder="email" value={formData.email} onChange={handleChange} className='p-2 rounded-lg mx-2 border-2 my-1 ' />
+            <input type="text" name="username" value={formData.username} placeholder="Choose a suitable Username for yourself" onChange={handleChange} className='p-2 rounded-lg  mx-2 border-2 my-2 ' />
+            <input type="text" name="password" value={formData.password} placeholder="Choose a suitable password for yourself" onChange={handleChange} className='p-2 rounded-lg mx-2 border-2 my-2 ' />
+            <button className='bg-yellow-500 text-white p-2 rounded-lg my-2 mx-2 ' type='submit ' >Register</button>
 
         </form>
     </div>);

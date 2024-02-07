@@ -4,7 +4,7 @@ import { setLogout } from './state';
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { setLogin } from './state';
-import { SlArrowDown } from "react-icons/sl";
+import { IoMenuSharp } from "react-icons/io5";
 import { HiChevronDoubleUp } from "react-icons/hi";
 
 
@@ -41,12 +41,12 @@ const Home = () => {
     }
 
     const Iconstyle = { color: "white", width: "24px", height: "24px" }
-    return (<div className='flex flex-col'>
-        <div className='flex w-full bg-blue justify-between px-24'>
-            <h1 className='my-3 text-3xl text-white '>Listio</h1>
+    return (<div className='flex flex-col bg-blaaaa h-full w-full '>
+        <div className='flex w-full justify-between md:px-24 px-6'>
+            <h1 className='my-3 text-3xl text-white '>List<span className='text-yellow-500'>io</span></h1>
             <div className='flex '>
 
-                {!showInfo && <SlArrowDown className='my-auto' style={Iconstyle} onClick={DisplayInfo} />} {/*}: <SlArrowDown className='my-auto transform rotate-180' style={Iconstyle} onClick={DisplayInfo} />} */}
+                {!showInfo && <IoMenuSharp className='my-auto' style={Iconstyle} onClick={DisplayInfo} />} {/*}: <SlArrowDown className='my-auto transform rotate-180' style={Iconstyle} onClick={DisplayInfo} />} */}
             </div>
         </div>
         <div className='absolute right-0 top-0 '>
@@ -60,10 +60,15 @@ const Home = () => {
                 </div>
             </div>
         </div>
-
-        <h1>Home</h1>
-        <p>Welcome to the home page.</p>
-        <p>{Cuser.firstName}</p>
+        <div className='flex flex-col h-screen'>
+            <div className='mx-6 '> Add Task</div>
+            <div className='mx-6 flex'>
+                <h1 >To Do Lists</h1>
+            </div>
+            <div className='mx-6'>
+                <h1>Completed Tasks</h1>
+            </div>
+        </div>
 
     </div>);
 }
