@@ -6,6 +6,9 @@ import { useEffect, useState } from 'react';
 import { setLogin } from './state';
 import { IoMenuSharp } from "react-icons/io5";
 import { HiChevronDoubleUp } from "react-icons/hi";
+import AddTask from './components/addTask';
+import Todo from './components/todoList';
+import Done from './components/done';
 
 
 const Home = () => {
@@ -61,12 +64,13 @@ const Home = () => {
             </div>
         </div>
         <div className='flex flex-col h-screen'>
-            <div className='mx-6 '> Add Task</div>
+            <div className='mx-6 '>
+                {<AddTask />} </div>
             <div className='mx-6 flex'>
-                <h1 >To Do Lists</h1>
+                {<Todo />}
             </div>
             <div className='mx-6'>
-                <h1>Completed Tasks</h1>
+                {<Done />}
             </div>
         </div>
 

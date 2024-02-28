@@ -5,13 +5,14 @@ import TodoItem from '../models/todoItem.js';
 
 const router = express.Router();
 
-router.post('/api/item', async (req, res) => {
+router.post('/api/item/:userId', async (req, res) => {
     try {
         /*const { name, age, email } = req.body;
         const item = new TodoItem({ name, age, email });
         await item.save();
         res.status(201).json(item);*/
-        const { userId, item } = req.body;
+        const { item } = req.body;
+        const { userId } = req.params;
 
         const newItem = new TodoItem({
             userId: userId,
