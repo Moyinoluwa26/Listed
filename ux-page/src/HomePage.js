@@ -66,7 +66,7 @@ const Home = () => {
         <div className='flex flex-col h-screen'>
             <div className='mx-6 '>
                 {<AddTask />} </div>
-            <div className='mx-6 flex'>
+            <div className='mx-6 '>
                 {<Todo />}
             </div>
             <div className='mx-6'>

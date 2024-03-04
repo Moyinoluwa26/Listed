@@ -2,10 +2,5 @@
 
 ### Create a new Todo
 //POST {{base_url}}/item
-POST http://localhost:3000/api/auth/login
+GET http://localhost:4000/api/item/65943d3b46d342a54fdd9159
 Content-Type: application/json
-
-{
-"username":"Adelamii001",
-"password":"Adelamii001"   
-}

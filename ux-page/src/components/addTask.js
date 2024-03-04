@@ -48,7 +48,7 @@ function AddTask() {
 
 
     return (
-        <div className='flex flex-cols mx-auto lg:w-1/3 w-96 bg-white opacity-50 rounded-2xl md:h-24 mt-12 '>
+        <div className='flex flex-cols mx-auto lg:w-1/3 w-96 bg-white  rounded-2xl md:h-24 mt-12 '>
 
 
             <form onSubmit={handleSubmit} className='m-auto'>
