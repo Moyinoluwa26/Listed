@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { setPosts } from '../state';
 
 function AddTask() {
     const [task, setTask] = useState('');
@@ -10,6 +11,11 @@ function AddTask() {
 
     const user = useSelector(state => state.auth.user);
     const userId = user._id;
+    const dispatch = useDispatch();
+
+    const updatePosts = (newPosts) => {
+        dispatch(setPosts({ posts: newPosts }));
+    };
 
 
     const handleChange = (e) => {
@@ -34,6 +40,7 @@ function AddTask() {
             });
 
             setTask('');
+            updatePosts(task)
 
             alert('Todo added successfully');
         }

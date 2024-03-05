@@ -9,6 +9,7 @@ import { HiChevronDoubleUp } from "react-icons/hi";
 import AddTask from './components/addTask';
 import Todo from './components/todoList';
 import Done from './components/done';
+//import Tasks from './components/todoState';
 
 
 const Home = () => {
@@ -63,7 +64,7 @@ const Home = () => {
                 </div>
             </div>
         </div>
-        <div className='flex flex-col h-screen'>
+        <div className='flex flex-col min-h-screen'>
             <div className='mx-6 '>
                 {<AddTask />} </div>
             <div className='mx-6 '>

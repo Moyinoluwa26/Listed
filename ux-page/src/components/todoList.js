@@ -1,15 +1,16 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import Loading from './loading';
-//import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 function Todo() {
     const [todos, setTodos] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
 
-    /*const user = useSelector(state => state.auth.user);
-    const userId = user._id;*/
+    //const usery = useSelector(state => state.auth.user);
+    const Posts = useSelector(state => state.auth.posts);
+
     const user = localStorage.getItem('user');
     const userId = JSON.parse(user)._id;
 
@@ -60,13 +61,13 @@ function Todo() {
 
         // Call the fetchPosts function when the component mounts
         fetchPosts();
-    }, [userId]);
+    }, [userId, Posts]);
 
 
 
     return (
-        <div className='bg-white w-1/3 mt-5 rounded-2xl mx-auto'>
-            <h2>User's Posts</h2>
+        <div className='bg-white w-1/3 mt-5 rounded-2xl mx-auto py-5'>
+            <h2 className='text-lg mb-2 ml-3'>Your Todo Lists : </h2>
             {isLoading ? (
                 <h1><Loading /></h1>
             ) : error ? (
@@ -74,7 +75,7 @@ function Todo() {
             ) : (
                 <ul>
                     {todos.map(post => (
-                        <li key={post.id}>{post.item}</li>
+                        <li key={post.id} className='border-2 py-5 pl-3'>{post.item}</li>
                     ))}
                 </ul>
             )}
