@@ -67,7 +67,7 @@ router.patch('/api/item/:id', async (req, res) => {
     }
 
 });
-router.delete('/api/item/:id', async (req, res) => {
+/*router.delete('/api/item/:id', async (req, res) => {
     const itemId = req.params.id;
     try {
 
@@ -91,6 +91,21 @@ router.delete('/api/item/:id', async (req, res) => {
             message: err.message
         })
     }
-})
+})*/
+
+router.delete('/api/item/:timestamp', async (req, res) => {
+    const timestamp = req.params.timestamp;
+    try {
+        // Find the todo item by timestamp and delete it
+        const deletedTodo = await TodoItem.findOneAndDelete({ timestamp: timestamp });
+        if (!deletedTodo) {
+            return res.status(404).json({ message: 'Todo item not found' });
+        }
+        res.status(200).json({ message: 'Todo item deleted successfully' });
+    } catch (error) {
+        console.error('Error deleting todo item:', error);
+        res.status(500).json({ message: 'Internal server error' });
+    }
+});
 
 export default router;

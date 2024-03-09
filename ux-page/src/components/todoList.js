@@ -1,7 +1,9 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import Loading from './loading';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { setPosts } from '../state';
+import { MdDeleteSweep } from "react-icons/md";
 
 function Todo() {
     const [todos, setTodos] = useState([]);
@@ -13,6 +15,36 @@ function Todo() {
 
     const user = localStorage.getItem('user');
     const userId = JSON.parse(user)._id;
+
+    const dispatch = useDispatch();
+    const updatePosts = (newPosts) => {
+        dispatch(setPosts({ posts: newPosts }));
+    };
+
+
+    const handleDelete = async (postId) => {
+        try {
+            const response = await fetch(`http://localhost:4000/api/item/${postId}`, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+            });
+            if (!response.ok) {
+                throw new Error('Failed to delete post');
+            }
+
+            else if (response.ok) {
+                alert('Todo deleted successfully');
+                console.log('Todo deleted successfully');
+            }
+
+            // Remove the deleted post from the todos array
+            updatePosts(todos.filter(todo => todo.id !== postId));
+        } catch (error) {
+            console.error('Error deleting post:', error);
+        }
+    };
 
 
     useEffect(() => {
@@ -41,9 +73,10 @@ function Todo() {
 
                 // Parse the JSON response
                 const data = await response.json();
+                const sortedPosts = data.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
 
                 // Update the state with the fetched posts
-                setTodos(data);
+                setTodos(sortedPosts);
 
 
                 setError(null);
@@ -61,7 +94,7 @@ function Todo() {
 
         // Call the fetchPosts function when the component mounts
         fetchPosts();
-    }, [userId, Posts]);
+    }, [userId, Posts,]);
 
 
 
@@ -73,10 +106,14 @@ function Todo() {
             ) : error ? (
                 <p>Error: {error}</p>
             ) : (
-                <ul>
+                <ul className='justify-between'>
                     {todos.map(post => (
-                        <li key={post.id} className='border-2 py-5 pl-3'>{post.item}</li>
+                        <li key={post.timestamp} className=' flex border-2 py-5 px-5 justify-between'>
+                            <div className=' '>{post.item}</div>
+                            <div className='w-12 my-auto'><MdDeleteSweep onClick={() => handleDelete(post.timestamp)} size={30} className='  m-6' /></div>
+                        </li>
                     ))}
+
                 </ul>
             )}
         </div>
@@ -84,3 +121,14 @@ function Todo() {
 }
 
 export default Todo;
+
+/*{() => {
+                            fetch(`http://localhost:4000/api/item/${post._id}`, {
+                                method: 'DELETE',
+                                headers: {
+                                    'Content-Type': 'application/json'
+                                },
+                            }).then(() => {
+                                setTodos(todos.filter(todo => todo._id !== post._id));
+                            });
+                        }}*/ 
