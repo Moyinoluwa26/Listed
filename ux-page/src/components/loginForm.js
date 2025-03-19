@@ -63,7 +63,7 @@ const Login = () => {
 
 
     return (< div className='flex bg-gray-700 rounded-xl mt-36'>
-        <form className='flex flex-col md:w-full mt-2 mx-auto' onSubmit={handleSubmit}>
+        <form className='flex flex-col w-full px-2 mt-2 mx-auto' onSubmit={handleSubmit}>
             <input type="text" name="username" placeholder="Username" value={formData.username} className='p-2 border-2 my-2 md:mx-2 rounded-lg' onChange={handleChange} />
             <input type="password" name="password" placeholder="Password" value={formData.password} className='p-2  md:mx-2 border-2 my-2 rounded-lg ' onChange={handleChange} />
             <button className='bg-yellow-500 text-white rounded-lg my-5 p-2 md:mx-2' type='submit'>Login</button>

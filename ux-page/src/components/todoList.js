@@ -99,7 +99,7 @@ function Todo() {
 
 
     return (
-        <div className='bg-white w-1/3 mt-5 rounded-2xl mx-auto py-5'>
+        <div className='bg-white lg:w-1/3 w-96 mt-5 rounded-2xl mx-auto py-5'>
             <h2 className='text-lg mb-2 ml-3'>Your Todo Lists : </h2>
             {isLoading ? (
                 <h1><Loading /></h1>
@@ -110,7 +110,7 @@ function Todo() {
                     {todos.map(post => (
                         <li key={post.timestamp} className=' flex border-2 py-5 px-5 justify-between'>
                             <div className=' '>{post.item}</div>
-                            <div className='w-12 my-auto'><MdDeleteSweep onClick={() => handleDelete(post.timestamp)} size={30} className='  m-6' /></div>
+                            <div className='w-12 my-auto'><MdDeleteSweep onClick={() => handleDelete(post.timestamp)} size={20} className='' /></div>
                         </li>
                     ))}
 
